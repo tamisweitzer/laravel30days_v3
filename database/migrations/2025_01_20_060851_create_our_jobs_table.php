@@ -9,7 +9,7 @@ return new class extends Migration {
      * Run the migrations.
      */
     public function up(): void {
-        Schema::create('job_listings', function (Blueprint $table) {
+        Schema::create('our_jobs', function (Blueprint $table) {
             $table->id();
             $table->string('title');
             $table->string('salary');
@@ -26,6 +26,6 @@ return new class extends Migration {
      * Reverse the migrations.
      */
     public function down(): void {
-        Schema::dropIfExists('job_listings');
+        Schema::dropIfExists('our_jobs');
     }
 };
