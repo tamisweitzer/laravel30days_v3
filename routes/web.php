@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Test1Controller;
 use Illuminate\Support\Facades\Route;
 use App\Models\OurJob;
 use App\Models\Band;
@@ -12,9 +13,7 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::get('/test1', function () {
-    return view('test1');
-});
+Route::get('/test1', [Test1Controller::class, 'show']);
 
 Route::get('/about', function () {
     return view('about');
