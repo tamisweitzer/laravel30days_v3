@@ -1,6 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Models\Job;
+use App\Models\Band;
+use App\Models\City;
+use App\Models\Event;
+
 
 
 Route::get('/', function () {
