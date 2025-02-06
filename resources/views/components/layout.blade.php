@@ -27,6 +27,7 @@
                                 <x-nav-link href="/bands" :active="request()->is('bands')">Bands</x-nav-link>
                                 <x-nav-link href="/cities" :active="request()->is('cities')">Cities</x-nav-link>
                                 <x-nav-link href="/events" :active="request()->is('events')">Events</x-nav-link>
+                                <x-nav-link href="/test1" :active="request()->is('test1')">Test1</x-nav-link>
                             </div>
                         </div>
                     </div>
@@ -84,13 +85,21 @@
             <!-- Mobile menu, show/hide based on menu state. -->
             <div class="md:hidden" id="mobile-menu">
                 <div class="space-y-1 px-2 pb-3 pt-2 sm:px-3">
+                    <x-nav-link-mobile href="/" :active="request()->is('/')">Home</x-nav-link-mobile>
+                    <x-nav-link-mobile href="/about" :active="request()->is('about')">About</x-nav-link-mobile>
+                    <x-nav-link-mobile href="/ourjobs" :active="request()->is('ourjobs')">Jobs</x-nav-link-mobile>
+                    <x-nav-link-mobile href="/contact" :active="request()->is('contact')">Contact</x-nav-link-mobile>
+                    <x-nav-link-mobile href="/bands" :active="request()->is('bands')">Bands</x-nav-link-mobile>
+                    <x-nav-link-mobile href="/cities" :active="request()->is('cities')">Cities</x-nav-link-mobile>
+                    <x-nav-link-mobile href="/events" :active="request()->is('events')">Events</x-nav-link-mobile>
+                    <x-nav-link-mobile href="/test1" :active="request()->is('test1')">Test1</x-nav-link-mobile>
                     <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-                    <a href="/" class="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white"
+                    {{-- <a href="/" class="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white"
                         aria-current="page">Home</a>
                     <a href="/about"
                         class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">About</a>
                     <a href="/contact"
-                        class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Contact</a>
+                        class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Contact</a> --}}
                 </div>
                 <div class="border-t border-gray-700 pb-3 pt-4">
                     <div class="flex items-center px-5">
