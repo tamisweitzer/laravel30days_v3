@@ -1,11 +1,12 @@
 <?php
 
-use App\Http\Controllers\Test1Controller;
-use Illuminate\Support\Facades\Route;
-use App\Models\OurJob;
 use App\Models\Band;
 use App\Models\City;
 use App\Models\Event;
+use App\Models\OurJob;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BandController;
+use App\Http\Controllers\Test1Controller;
 
 
 
@@ -32,14 +33,10 @@ Route::get('/contact', function () {
     return view('contact');
 });
 
-Route::get('/bands', function () {
-    return view('bands', ['bands' => Band::all()]);
-});
+Route::get('/bands', [BandController::class, 'show']);
 
-Route::get('/bands/{id}', function ($id) {
-    $band = Band::find($id);
-    return view('band', ['band' => $band]);
-});
+
+Route::get('/bands/{id}', [BandController::class, 'find']);
 
 Route::get('/cities', function () {
     return view('cities', [
