@@ -19,7 +19,7 @@ class CityFactory extends Factory {
             'common_name' => fake()->city(),
             'proper_name' => 'proper name',
             'bio' => 'Lorem ipsum and stuff',
-            'thumbnail_url' => ' ',
+            'thumbnail_img' => ' ',
             'banner_img' => ' '
         ];
     }

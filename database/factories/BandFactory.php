@@ -21,7 +21,7 @@ class BandFactory extends Factory {
             'city_id' => \App\Models\City::factory(),
             'state_id' => \App\Models\State::factory(),
             'website_url' => 'https://foxvalleylive.com',
-            'thumbnail_url' => ' ',
+            'thumbnail_img' => ' ',
             'banner_img' => ' '
         ];
     }

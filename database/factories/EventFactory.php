@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Band;
+use App\Models\Venue;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,8 +18,12 @@ class EventFactory extends Factory {
     public function definition(): array {
         return [
             'name' => fake()->company(),
+            'admin_name' => 'Same as name value',
             'band_id' => Band::factory(),
-            'edate' => fake()->date()
+            'venue_id' => Venue::factory(),
+            'event_date' => fake()->date(),
+            'event_time' => fake()->time(),
+            'event_details' => 'Lorem ipsum ....'
         ];
     }
 }
