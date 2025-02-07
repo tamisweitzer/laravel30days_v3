@@ -55,3 +55,16 @@ Route::get('/cities/{id}', function ($id) {
 Route::get('/events', function () {
     return view('events', ['events' => Event::all()]);
 });
+
+Route::get('/events/{id}', function ($id) {
+    $event = Event::find($id);
+    return view('event', ['event' => $event]);
+});
+
+Route::get('/events/{year}/{mon}', function ($year, $mon) {
+    // where event date year = $year AND event date mon = $mon
+    // $events = Event::all()->where();
+
+    // For now:
+    return view('events-month', ['events' => Event::all(), 'year' => $year, 'mon' => $mon]);
+});

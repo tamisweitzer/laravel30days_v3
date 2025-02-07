@@ -1,5 +1,6 @@
 <x-layout>
-    <x-slot:heading>Events</x-slot:heading>
+    <x-slot:heading>{{ $mon }}/{{ $year }}</x-slot:heading>
+    <h2 class="mb-8">All events for {{ $mon }}/{{ $year }}</h2>
 
     <ul>
         @foreach ($events as $event)
@@ -13,7 +14,7 @@
 
                 <div class="text-sm">
                     <a href="cities/{{ $event->band->city->id }}" class="">{{ $event->band->city->name }}</a>,
-                    <a href="events/{{ date('Y/m', strtotime($event->event_time)) }}"
+                    <a href="{{ date('Y/m', strtotime($event->event_time)) }}"
                         class="">{{ date('m/d/Y', strtotime($event->event_time)) }}</a>
                     at 8:00 pm
                 </div>
