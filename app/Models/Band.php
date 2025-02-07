@@ -10,7 +10,12 @@ class Band extends Model {
 
     protected $fillable = [
         'common_name',
-        'proper_name'
+        'proper_name',
+        'city_id',
+        'state_id',
+        'website_url',
+        'thumbnail_url',
+        'banner_img'
     ];
 
     public function city() {

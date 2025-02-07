@@ -11,7 +11,10 @@ class City extends Model {
     protected $table = 'cities';
     protected $fillable = [
         'common_name',
-        'proper_name'
+        'proper_name',
+        'bio',
+        'thumbnail_url',
+        'banner_img'
     ];
 
     public function bands() {
