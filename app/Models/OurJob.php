@@ -14,4 +14,9 @@ class OurJob extends Model {
   public function employer() {
     return $this->belongsTo(Employer::class);
   }
+
+  // Specifiy many-to-many relationship to Tags.
+  public function tags() {
+    return $this->belongsToMany(Tag::class);
+  }
 }
