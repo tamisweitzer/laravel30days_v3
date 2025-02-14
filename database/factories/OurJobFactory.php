@@ -17,7 +17,7 @@ class OurJobFactory extends Factory {
     public function definition(): array {
         return [
             'title' => fake()->jobTitle(),
-            'salary' => '$50,000',
+            'salary' => fake()->randomFloat(2, 50000, 120000),
             'employer_id' => Employer::factory(),
         ];
     }
