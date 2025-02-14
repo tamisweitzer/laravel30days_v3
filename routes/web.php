@@ -22,7 +22,7 @@ Route::get('/about', function () {
 
 Route::get('/ourjobs', function () {
     // Eager load jobs with the associated employers.
-    $jobs = OurJob::with('employer')->get();
+    $jobs = OurJob::with('employer')->paginate(3);
     return view('ourjobs', ['jobs' => $jobs]);
 });
 
