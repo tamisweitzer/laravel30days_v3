@@ -20,16 +20,37 @@ Route::get('/about', function () {
     return view('about');
 });
 
+
 Route::get('/ourjobs', function () {
     // Eager load jobs with the associated employers.
     $jobs = OurJob::with('employer')->paginate(3);
-    return view('ourjobs', ['jobs' => $jobs]);
+    return view('jobs.index', ['jobs' => $jobs]);
+});
+
+
+Route::get('/ourjobs/create', function () {
+    return view('jobs.create');
+});
+
+Route::post('/ourjobs/create', function () {
+    OurJob::create([
+        'title' => request("title"),
+        'salary' => request("salary"),
+        'employer_id' => 1,
+    ]);
+
+    return redirect('/ourjobs');
 });
 
 Route::get('/ourjobs/{id}', function ($id) {
     $job = OurJob::find($id);
-    return view('ourjob', ['job' => $job]);
+    return view('jobs.show', ['job' => $job]);
 });
+
+
+
+
+
 
 Route::get('/contact', function () {
     return view('contact');
