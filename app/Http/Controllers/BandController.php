@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Illuminate\View\View;
 use App\Models\Band;
+use Illuminate\View\View;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class BandController extends Controller {
     public function show(): View {
@@ -14,5 +15,14 @@ class BandController extends Controller {
     public function find($id): View {
         $band = Band::find($id);
         return view('band', ['band' => $band]);
+    }
+
+
+    public function insertMany() {
+        DB::table('bands')->insert([
+            ['key' => 'value', 'key' => 'value'],
+            ['key' => 'value', 'key' => 'value'],
+            ['key' => 'value', 'key' => 'value'],
+        ]);
     }
 }
