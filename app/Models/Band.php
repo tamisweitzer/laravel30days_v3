@@ -9,12 +9,14 @@ class Band extends Model {
     use HasFactory;
 
     protected $fillable = [
-        'common_name',
-        'proper_name',
+        'name',
+        'fullname',
+        'excerpt',
+        'bio',
         'city_id',
         'state_id',
         'website_url',
-        'thumbnail_url',
+        'thumbnail_img',
         'banner_img'
     ];
 

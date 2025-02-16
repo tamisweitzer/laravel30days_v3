@@ -8,14 +8,14 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class BandController extends Controller {
-    public function show(): View {
+    public function index(): View {
         $bands = Band::with(['city', 'state'])->get();
-        return view('bands', ['bands' => $bands]);
+        return view('bands.index', ['bands' => $bands]);
     }
 
-    public function find($id): View {
+    public function show($id): View {
         $band = Band::find($id);
-        return view('band', ['band' => $band]);
+        return view('bands.show', ['band' => $band]);
     }
 
 
@@ -23,10 +23,9 @@ class BandController extends Controller {
         DB::table('bands')->insertGetId(
             [
                 'name' => 'Annex',
-                'common_name' => 'Annex',
-                'proper_name' => 'Annex',
-                // 'excerpt' => "Walk into an annex show and get smacked with a wall of sound. This is a rock band from Green Bay. The Marshalls are dialed high, the Les Pauls are cranked!",
-                // 'bio' => "annex bio here ",
+                'fullname' => 'Annex',
+                'excerpt' => "Walk into an annex show and get smacked with a wall of sound. This is a rock band from Green Bay. The Marshalls are dialed high, the Les Pauls are cranked!",
+                'bio' => "annex bio here ",
                 'city_id' => 3,
                 'state_id' => 1,
                 'website_url' => 'x',

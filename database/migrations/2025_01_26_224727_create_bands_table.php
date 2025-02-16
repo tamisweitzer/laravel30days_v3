@@ -12,15 +12,14 @@ return new class extends Migration {
         Schema::create('bands', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('common_name');
-            $table->string('proper_name');
-            $table->text('excerpt');
-            $table->text('bio');
-            $table->foreignIdFor(\App\Models\City::class);
-            $table->foreignIdFor(\App\Models\State::class);
-            $table->string('website_url');
-            $table->string('thumbnail_img');
-            $table->string('banner_img');
+            $table->string('fullname')->nullable();
+            $table->text('excerpt')->nullable();
+            $table->text('bio')->nullable();
+            $table->foreignIdFor(\App\Models\City::class)->nullable();
+            $table->foreignIdFor(\App\Models\State::class)->nullable();
+            $table->string('website_url')->nullable();
+            $table->string('thumbnail_img')->nullable();
+            $table->string('banner_img')->nullable();
             $table->timestamps();
         });
     }

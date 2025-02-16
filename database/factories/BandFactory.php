@@ -16,8 +16,9 @@ class BandFactory extends Factory {
     public function definition(): array {
         return [
             'name' => fake()->name(),
-            'common_name' => fake()->company(),
-            'proper_name' => fake()->company(),
+            'fullname' => fake()->company(),
+            'excerpt' => 'A brief excerpt',
+            'bio' => 'A longer bio',
             'city_id' => \App\Models\City::factory(),
             'state_id' => \App\Models\State::factory(),
             'website_url' => 'https://foxvalleylive.com',

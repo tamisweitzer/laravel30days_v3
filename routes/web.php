@@ -26,11 +26,9 @@ Route::get('/ourjobs', function () {
     $jobs = OurJob::with('employer')->paginate(3);
     return view('jobs.index', ['jobs' => $jobs]);
 });
-
 Route::get('/ourjobs/create', function () {
     return view('jobs.create');
 });
-
 Route::post('/ourjobs/create', function () {
     OurJob::create([
         'title' => request("title"),
@@ -50,28 +48,26 @@ Route::get('/contact', function () {
     return view('contact');
 });
 
-Route::get('/bands', [BandController::class, 'show']);
+Route::get('/bands', [BandController::class, 'index']);
+Route::get('/bands/{id}', [BandController::class, 'show']);
 
-
-Route::get('/bands/{id}', [BandController::class, 'find']);
 
 Route::get('/cities', function () {
     return view('cities.index', [
         'cities' => City::all()
     ]);
 });
-
 Route::get('/cities/{id}', function ($id) {
     $city = City::find($id);
     $bands = Band::all()->where('city_id', $city->id);
-    // $venues = Venue::all()->where('city_id', $city->id);
+    // TODO when venues are set up. $venues = Venue::all()->where('city_id', $city->id);
     return view('cities.show', ['city' => $city, 'bands' => $bands]);
 });
+
 
 Route::get('/events', function () {
     return view('events', ['events' => Event::all()]);
 });
-
 Route::get('/events/{id}', function ($id) {
     $event = Event::find($id);
     return view('event', ['event' => $event]);
