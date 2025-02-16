@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\DB;
 class BandController extends Controller {
     public function index(): View {
         $bands = Band::with(['city', 'state'])->get();
+
         return view('bands.index', ['bands' => $bands]);
     }
 

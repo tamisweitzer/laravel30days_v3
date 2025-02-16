@@ -7,6 +7,7 @@ use App\Models\Venue;
 use App\Models\OurJob;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BandController;
+use App\Http\Controllers\CityController;
 use App\Http\Controllers\Test1Controller;
 
 
@@ -46,24 +47,15 @@ Route::get('/ourjobs/{id}', function ($id) {
 });
 
 Route::get('/contact', function () {
-    return view('contact');
+    return view(view: 'contact');
 });
 
 Route::get('/bands', [BandController::class, 'index']);
 Route::get('/bands/{id}', [BandController::class, 'show']);
 
 
-Route::get('/cities', function () {
-    return view('cities.index', [
-        'cities' => City::all()
-    ]);
-});
-Route::get('/cities/{id}', function ($id) {
-    $city = City::find($id);
-    $bands = Band::all()->where('city_id', $city->id);
-    // TODO when venues are set up. $venues = Venue::all()->where('city_id', $city->id);
-    return view('cities.show', ['city' => $city, 'bands' => $bands]);
-});
+Route::get('/cities', [CityController::class, 'index']);
+Route::get('/cities/{id}', [CityController::class, 'show']);
 
 
 Route::get('venues', function () {
