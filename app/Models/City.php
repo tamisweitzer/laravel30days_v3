@@ -10,10 +10,14 @@ class City extends Model {
 
     protected $table = 'cities';
     protected $fillable = [
-        'common_name',
-        'proper_name',
+        'name',
+        'fullname',
+        'excerpt',
         'bio',
-        'thumbnail_url',
+        'website_url',
+        'lat',
+        'long',
+        'thumbnail_img',
         'banner_img'
     ];
 

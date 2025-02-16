@@ -46,11 +46,6 @@ Route::get('/ourjobs/{id}', function ($id) {
     return view('jobs.show', ['job' => $job]);
 });
 
-
-
-
-
-
 Route::get('/contact', function () {
     return view('contact');
 });
@@ -61,7 +56,7 @@ Route::get('/bands', [BandController::class, 'show']);
 Route::get('/bands/{id}', [BandController::class, 'find']);
 
 Route::get('/cities', function () {
-    return view('cities', [
+    return view('cities.index', [
         'cities' => City::all()
     ]);
 });
@@ -70,7 +65,7 @@ Route::get('/cities/{id}', function ($id) {
     $city = City::find($id);
     $bands = Band::all()->where('city_id', $city->id);
     // $venues = Venue::all()->where('city_id', $city->id);
-    return view('city', ['city' => $city, 'bands' => $bands]);
+    return view('cities.show', ['city' => $city, 'bands' => $bands]);
 });
 
 Route::get('/events', function () {

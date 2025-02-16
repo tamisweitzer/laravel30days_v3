@@ -14,6 +14,7 @@
     </div>
 
     <h3 class="mt-8 mb-4">All Venues Located Here</h3>
+    TODO
     {{-- <div>
         @foreach ($venues as $venue)
             <div class="p-4 mb-2 bg-slate-50 border b-slate-100">

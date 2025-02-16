@@ -12,9 +12,12 @@ return new class extends Migration {
         Schema::create('cities', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('common_name')->nullable();
-            $table->string('proper_name')->nullable();
+            $table->string('fullname')->nullable();
+            $table->text('excerpt');
             $table->text('bio')->nullable();
+            $table->string('website_url')->nullable();
+            $table->float('lat')->nullable();
+            $table->float('long')->nullable();
             $table->string('thumbnail_img')->nullable();
             $table->string('banner_img')->nullable();
             $table->timestamps();

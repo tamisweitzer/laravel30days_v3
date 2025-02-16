@@ -16,9 +16,12 @@ class CityFactory extends Factory {
     public function definition(): array {
         return [
             'name' => fake()->city(),
-            'common_name' => fake()->city(),
-            'proper_name' => 'proper name',
+            'fullname' => fake()->city(),
+            'excerpt' => 'A quick excerpt here',
             'bio' => 'Lorem ipsum and stuff',
+            'website_url' => 'https://somewhere.com',
+            'lat' => '',
+            'long' => '',
             'thumbnail_img' => ' ',
             'banner_img' => ' '
         ];
