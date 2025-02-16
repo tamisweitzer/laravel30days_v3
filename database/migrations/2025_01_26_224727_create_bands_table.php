@@ -14,6 +14,8 @@ return new class extends Migration {
             $table->string('name');
             $table->string('common_name');
             $table->string('proper_name');
+            $table->text('excerpt');
+            $table->text('bio');
             $table->foreignIdFor(\App\Models\City::class);
             $table->foreignIdFor(\App\Models\State::class);
             $table->string('website_url');

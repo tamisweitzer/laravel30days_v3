@@ -87,7 +87,7 @@
             </div>
 
             <!-- Mobile menu, show/hide based on menu state. -->
-            <div class="transition-all duration-5000 ease-in-out" id="mobile-menu">
+            <div class="hidden transition-all duration-5000 ease-in-out" id="mobile-menu">
                 <div class="space-y-1 px-2 pb-3 pt-2 sm:px-3">
                     <x-nav-link-mobile href="/" :active="request()->is('/')">Home</x-nav-link-mobile>
                     <x-nav-link-mobile href="/about" :active="request()->is('about')">About</x-nav-link-mobile>

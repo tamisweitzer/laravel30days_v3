@@ -27,7 +27,6 @@ Route::get('/ourjobs', function () {
     return view('jobs.index', ['jobs' => $jobs]);
 });
 
-
 Route::get('/ourjobs/create', function () {
     return view('jobs.create');
 });
@@ -69,7 +68,9 @@ Route::get('/cities', function () {
 
 Route::get('/cities/{id}', function ($id) {
     $city = City::find($id);
-    return view('city', ['city' => $city]);
+    $bands = Band::all()->where('city_id', $city->id);
+    // $venues = Venue::all()->where('city_id', $city->id);
+    return view('city', ['city' => $city, 'bands' => $bands]);
 });
 
 Route::get('/events', function () {
