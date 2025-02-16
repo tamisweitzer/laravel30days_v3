@@ -1,21 +1,16 @@
 <?php
 
 use App\Models\Event;
-use App\Models\Venue;
-use App\Models\OurJob;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BandController;
 use App\Http\Controllers\CityController;
 use App\Http\Controllers\OurJobController;
 use App\Http\Controllers\Test1Controller;
-
-
+use App\Http\Controllers\VenueController;
 
 Route::get('/', function () {
     return view('home');
 });
-
-Route::get('/test1', [Test1Controller::class, 'show']);
 
 Route::get('/about', function () {
     return view('about');
@@ -30,24 +25,19 @@ Route::get('/ourjobs/create', [OurJobController::class, 'create']);
 Route::post('/ourjobs/create', [OurJobController::class, 'store']);
 Route::get('/ourjobs/{id}', [OurJobController::class, 'show']);
 
+Route::get('/test1', [Test1Controller::class, 'show']);
 
+
+// Fox Valley Live test routes.
 
 Route::get('/bands', [BandController::class, 'index']);
 Route::get('/bands/{id}', [BandController::class, 'show']);
 
-
 Route::get('/cities', [CityController::class, 'index']);
 Route::get('/cities/{id}', [CityController::class, 'show']);
 
-
-Route::get('venues', function () {
-    return view('venues.index', ['venues' => Venue::all()]);
-});
-Route::get('venues/{id}', function ($id) {
-    $venue = Venue::find($id);
-    return view('venues.show', ['venue' => $venue]);
-});
-
+Route::get('venues', [VenueController::class, 'index']);
+Route::get('venues/{id}', [VenueController::class, 'show']);
 
 Route::get('/events', function () {
     return view('events', ['events' => Event::all()]);
