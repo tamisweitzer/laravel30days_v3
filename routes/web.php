@@ -1,9 +1,9 @@
 <?php
 
-use App\Models\Event;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BandController;
 use App\Http\Controllers\CityController;
+use App\Http\Controllers\EventController;
 use App\Http\Controllers\OurJobController;
 use App\Http\Controllers\Test1Controller;
 use App\Http\Controllers\VenueController;
@@ -39,18 +39,6 @@ Route::get('/cities/{id}', [CityController::class, 'show']);
 Route::get('venues', [VenueController::class, 'index']);
 Route::get('venues/{id}', [VenueController::class, 'show']);
 
-Route::get('/events', function () {
-    return view('events', ['events' => Event::all()]);
-});
-Route::get('/events/{id}', function ($id) {
-    $event = Event::find($id);
-    return view('event', ['event' => $event]);
-});
-
-Route::get('/events/{year}/{mon}', function ($year, $mon) {
-    // where event date year = $year AND event date mon = $mon
-    // $events = Event::all()->where();
-
-    // For now:
-    return view('events-month', ['events' => Event::all(), 'year' => $year, 'mon' => $mon]);
-});
+Route::get('/events', [EventController::class, 'index']);
+Route::get('/events/{id}', [EventController::class, 'show']);
+Route::get('/events/{year}/{mon}', [EventController::class, 'archivemonth']);
