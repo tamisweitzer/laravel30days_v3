@@ -1,7 +1,5 @@
 <?php
 
-use App\Models\Band;
-use App\Models\City;
 use App\Models\Event;
 use App\Models\Venue;
 use App\Models\OurJob;
