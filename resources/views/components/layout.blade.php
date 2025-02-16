@@ -31,7 +31,7 @@
                                 <x-nav-link href="/bands" :active="request()->is('bands')">Bands</x-nav-link>
                                 <x-nav-link href="/cities" :active="request()->is('cities')">Cities</x-nav-link>
                                 <x-nav-link href="/events" :active="request()->is('events')">Events</x-nav-link>
-                                <x-nav-link href="/test1" :active="request()->is('test1')">Test1</x-nav-link>
+                                <x-nav-link href="/venues" :active="request()->is('venues')">Venues</x-nav-link>
                             </div>
                         </div>
                     </div>
