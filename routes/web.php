@@ -3,6 +3,7 @@
 use App\Models\Band;
 use App\Models\City;
 use App\Models\Event;
+use App\Models\Venue;
 use App\Models\OurJob;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BandController;
@@ -62,6 +63,15 @@ Route::get('/cities/{id}', function ($id) {
     $bands = Band::all()->where('city_id', $city->id);
     // TODO when venues are set up. $venues = Venue::all()->where('city_id', $city->id);
     return view('cities.show', ['city' => $city, 'bands' => $bands]);
+});
+
+
+Route::get('venues', function () {
+    return view('venues.index', ['venues' => Venue::all()]);
+});
+Route::get('venues/{id}', function ($id) {
+    $venue = Venue::find($id);
+    return view('venues.show', ['venue' => $venue]);
 });
 
 

@@ -17,12 +17,14 @@ class VenueFactory extends Factory {
     public function definition(): array {
         return [
             'name' => fake()->company(),
-            'common_name' => fake()->company(),
-            'proper_name' => "same as common",
+            'fullname' => fake()->company(),
+            'excerpt' => 'A bried excerpt',
+            'bio' => 'A longer bio',
             'address1' => '',
             'address2' => '',
             'city_id' => City::factory(),
             'state_id' => 1,
+            'zip' => '54911',
             'phone' => '414-555-1212',
             'website_url' => 'https://foxvalleylive.com',
             'lat' => ' ',
