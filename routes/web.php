@@ -6,6 +6,7 @@ use App\Models\OurJob;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BandController;
 use App\Http\Controllers\CityController;
+use App\Http\Controllers\OurJobController;
 use App\Http\Controllers\Test1Controller;
 
 
@@ -20,33 +21,16 @@ Route::get('/about', function () {
     return view('about');
 });
 
-
-Route::get('/ourjobs', function () {
-    // Eager load jobs with the associated employers.
-    $jobs = OurJob::with('employer')->paginate(3);
-    return view('jobs.index', ['jobs' => $jobs]);
-});
-Route::get('/ourjobs/create', function () {
-    return view('jobs.create');
-});
-Route::post('/ourjobs/create', function () {
-    OurJob::create([
-        'title' => request("title"),
-        'salary' => request("salary"),
-        'employer_id' => 1,
-    ]);
-
-    return redirect('/ourjobs');
-});
-
-Route::get('/ourjobs/{id}', function ($id) {
-    $job = OurJob::find($id);
-    return view('jobs.show', ['job' => $job]);
-});
-
 Route::get('/contact', function () {
     return view(view: 'contact');
 });
+
+Route::get('/ourjobs', [OurJobController::class, 'index']);
+Route::get('/ourjobs/create', [OurJobController::class, 'create']);
+Route::post('/ourjobs/create', [OurJobController::class, 'store']);
+Route::get('/ourjobs/{id}', [OurJobController::class, 'show']);
+
+
 
 Route::get('/bands', [BandController::class, 'index']);
 Route::get('/bands/{id}', [BandController::class, 'show']);
