@@ -14,7 +14,7 @@ return new class extends Migration {
         Schema::create('events', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('admin_name');
+            $table->string('admin_name')->nullable();
             $table->foreignIdFor(Band::class);
             $table->foreignIdFor(Venue::class);
             $table->date('event_date');

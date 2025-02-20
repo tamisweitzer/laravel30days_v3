@@ -32,6 +32,7 @@ Route::get('/test1', [Test1Controller::class, 'show']);
 // Fox Valley Live test routes.
 
 Route::get('/bands', [BandController::class, 'index']);
+Route::get('/bands/create', [BandController::class, 'create']);
 Route::get('/bands/{id}', [BandController::class, 'show']);
 
 Route::get('/cities', [CityController::class, 'index']);
@@ -42,5 +43,6 @@ Route::get('/venues/{id}', [VenueController::class, 'show']);
 
 Route::get('/events', [EventController::class, 'index']);
 Route::get('/events/create', [EventController::class, 'create']);
+Route::post('events/create', [EventController::class, 'store']);
 Route::get('/events/{id}', [EventController::class, 'show']);
 Route::get('/events/{year}/{mon}', [EventController::class, 'archivemonth']);
