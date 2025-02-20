@@ -33,6 +33,7 @@ Route::get('/test1', [Test1Controller::class, 'show']);
 
 Route::get('/bands', [BandController::class, 'index']);
 Route::get('/bands/create', [BandController::class, 'create']);
+Route::post('/bands/create', [BandController::class, 'store']);
 Route::get('/bands/{id}', [BandController::class, 'show']);
 
 Route::get('/cities', [CityController::class, 'index']);
