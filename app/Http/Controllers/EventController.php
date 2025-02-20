@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Models\City;
 use App\Models\Event;
+use App\Models\State;
+use Illuminate\Http\Request;
 
 class EventController extends Controller {
     public function index() {
@@ -21,5 +23,11 @@ class EventController extends Controller {
 
         // For now:
         return view('events-month', ['events' => Event::all(), 'year' => $year, 'mon' => $mon]);
+    }
+
+    public function create() {
+        $cities = City::all();
+        $states = State::all();
+        return view('events.create', ['cities' => $cities, 'states' => $states]);
     }
 }
