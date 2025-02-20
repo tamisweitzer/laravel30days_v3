@@ -9,7 +9,8 @@ use Illuminate\Http\Request;
 
 class EventController extends Controller {
     public function index() {
-        return view('events.index', ['events' => Event::all()]);
+        $events = Event::with(['band', 'venue'])->get();
+        return view('events.index', ['events' => $events]);
     }
 
     public function show($id) {
