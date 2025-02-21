@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class OurJobController extends Controller {
     public function index() {
         // Eager load jobs with the associated employers.
-        $jobs = OurJob::with('employer')->paginate(3);
+        $jobs = OurJob::with('employer')->paginate(20);
         return view('jobs.index', ['jobs' => $jobs]);
     }
 

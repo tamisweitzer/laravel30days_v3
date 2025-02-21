@@ -32,7 +32,8 @@
                 <x-label-default for="venue">Venue</x-label-default>
                 <select name="venue" id="venue" class="block w-full border shadow-inner p-1">
                     @foreach ($venues as $venue)
-                        <option id="venue_{{ $venue->id }}" value="{{ $venue->id }}">{{ $venue->name }}
+                        <option id="venue_{{ $venue->id }}" value="{{ $venue->id }}">{{ $venue->id }}
+                            {{ $venue->name }}
                         </option>
                     @endforeach
                 </select>

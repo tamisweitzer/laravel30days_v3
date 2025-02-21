@@ -32,7 +32,8 @@
             <select name="city_id" id="city_id" class="block w-full border shadow-inner p-1">
                 <option id="city_0" name="city_0" value="1">What city are you based out of</option>
                 @foreach ($cities as $city)
-                    <option id="city_{{ $city->id }}" value="{{ $city->id }}">{{ $city->name }}
+                    <option id="city_{{ $city->id }}" value="{{ $city->id }}">{{ $city->id }}
+                        {{ $city->name }}
                     </option>
                 @endforeach
             </select>

@@ -25,6 +25,7 @@ class VenueFactory extends Factory {
             'city_id' => City::factory(),
             'state_id' => 1,
             'zip' => '54911',
+            'neighborhood' => '',
             'phone' => '414-555-1212',
             'website_url' => 'https://foxvalleylive.com',
             'lat' => ' ',
