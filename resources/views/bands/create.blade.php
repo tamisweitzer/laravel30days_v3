@@ -28,9 +28,9 @@
         </x-form-group>
 
         <x-form-group>
-            <x-label-default for="city_id">city</x-label-default>
+            <x-label-default for="city_id">City</x-label-default>
             <select name="city_id" id="city_id" class="block w-full border shadow-inner p-1">
-                <option value="null">What city are you based out of</option>
+                <option id="city_0" name="city_0" value="1">What city are you based out of</option>
                 @foreach ($cities as $city)
                     <option id="city_{{ $city->id }}" value="{{ $city->id }}">{{ $city->name }}
                     </option>
@@ -39,7 +39,7 @@
         </x-form-group>
 
         <x-form-group>
-            <x-label-default for="state_id">state</x-label-default>
+            <x-label-default for="state_id">State</x-label-default>
             <select name="state_id" id="state_id" class="block w-full border shadow-inner p-1">
                 @foreach ($states as $state)
                     <option value="{{ $state->id }}">{{ $state->name }}</option>
