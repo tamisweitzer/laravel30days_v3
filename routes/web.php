@@ -1,13 +1,15 @@
 <?php
 
+use App\Models\Event;
+use App\Models\Employer;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BandController;
 use App\Http\Controllers\CityController;
 use App\Http\Controllers\EventController;
-use App\Http\Controllers\OurJobController;
 use App\Http\Controllers\Test1Controller;
 use App\Http\Controllers\VenueController;
-use App\Models\Event;
+use App\Http\Controllers\OurJobController;
+use App\Http\Controllers\EmployerController;
 
 Route::get('/', function () {
     return view('home');
@@ -25,6 +27,11 @@ Route::get('/ourjobs', [OurJobController::class, 'index']);
 Route::get('/ourjobs/create', [OurJobController::class, 'create']);
 Route::post('/ourjobs/create', [OurJobController::class, 'store']);
 Route::get('/ourjobs/{id}', [OurJobController::class, 'show']);
+
+Route::get('/employers', [EmployerController::class, 'index']);
+Route::get('/employers/{id}', [EmployerController::class, 'show']);
+
+
 
 Route::get('/test1', [Test1Controller::class, 'show']);
 

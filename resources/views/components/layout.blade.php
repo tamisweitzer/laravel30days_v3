@@ -27,7 +27,8 @@
                                 <x-nav-link href="/" :active="request()->is('/')">Home</x-nav-link>
                                 <x-nav-link href="/about" :active="request()->is('about')">About</x-nav-link>
                                 <x-nav-link href="/ourjobs" :active="request()->is('ourjobs')">Jobs</x-nav-link>
-                                <x-nav-link href="/contact" :active="request()->is('contact')">Contact</x-nav-link>
+                                <x-nav-link href="/employers" :active="request()->is('employers')">Employers</x-nav-link>
+                                <!-- FVL Tests -->
                                 <x-nav-link href="/bands" :active="request()->is('bands')">Bands</x-nav-link>
                                 <x-nav-link href="/cities" :active="request()->is('cities')">Cities</x-nav-link>
                                 <x-nav-link href="/events" :active="request()->is('events')">Events</x-nav-link>
