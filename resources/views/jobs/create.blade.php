@@ -18,11 +18,7 @@
                                     class="block min-w-0 grow py-1.5 pr-3 pl-1 text-base text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm/6"
                                     placeholder="Programmer">
                             </div>
-                            @error('title')
-                                <div class="mt-2 text-red-500 text-sm">
-                                    {{ $message }}
-                                </div>
-                            @enderror
+                            <x-form-error field="title"></x-form-error>
                         </div>
                     </div>
 
@@ -35,23 +31,10 @@
                                     class="block min-w-0 grow py-1.5 pr-3 pl-1 text-base text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm/6"
                                     placeholder="$80,000/year">
                             </div>
-                            @error('salary')
-                                <div class="mt-2 text-red-500 text-sm">
-                                    {{ $message }}
-                                </div>
-                            @enderror
+                            <x-form-error field="salary"></x-form-error>
                         </div>
                     </div>
                 </div>
-                {{-- <div class="mt-8 text-red-700">
-                    @if ($errors->any())
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    @endif
-                </div> --}}
             </div>
 
         </div>
