@@ -11,6 +11,9 @@ use App\Http\Controllers\VenueController;
 use App\Http\Controllers\OurJobController;
 use App\Http\Controllers\EmployerController;
 
+// See all routes with php artisan route:list
+
+
 // first way we did it.
 // Route::get('/', function () {
 //     return view(view: 'home');
