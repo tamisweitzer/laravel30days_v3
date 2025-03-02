@@ -19,7 +19,9 @@
                                     placeholder="Programmer">
                             </div>
                             @error('title')
-                                {{ $message }}
+                                <div class="mt-2 text-red-500 text-sm">
+                                    {{ $message }}
+                                </div>
                             @enderror
                         </div>
                     </div>
@@ -34,7 +36,9 @@
                                     placeholder="$80,000/year">
                             </div>
                             @error('salary')
-                                {{ $message }}
+                                <div class="mt-2 text-red-500 text-sm">
+                                    {{ $message }}
+                                </div>
                             @enderror
                         </div>
                     </div>
