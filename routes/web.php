@@ -27,14 +27,17 @@ Route::view('/contact', 'contact');
 
 
 // Jobs
-Route::get('/ourjobs', [OurJobController::class, 'index']);
-Route::get('/ourjobs/create', [OurJobController::class, 'create']);
-Route::get('/ourjobs/{job}/edit', [OurJobController::class, 'edit']);
-Route::get('/ourjobs/{job}', [OurJobController::class, 'show']);
+Route::controller(OurJobController::class)->group(function () {
+    Route::get('/ourjobs', 'index');
+    Route::get('/ourjobs/create', 'create');
+    Route::get('/ourjobs/{job}/edit', 'edit');
+    Route::get('/ourjobs/{job}', 'show');
 
-Route::post('/ourjobs/create', [OurJobController::class, 'store']);
-Route::patch('/ourjobs/{job}', [OurJobController::class, 'update']);
-Route::delete('/ourjobs/{job}', [OurJobController::class, 'destroy']);
+    Route::post('/ourjobs/create', 'store');
+    Route::patch('/ourjobs/{job}', 'update');
+    Route::delete('/ourjobs/{job}', 'destroy');
+});
+
 
 
 // Employers
