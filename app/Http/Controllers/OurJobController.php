@@ -9,7 +9,8 @@ use Illuminate\Support\Facades\DB;
 class OurJobController extends Controller {
     public function index() {
         // Eager load jobs with the associated employers.
-        $jobs = OurJob::with('employer')->orderBy('id', 'desc')->paginate(20);
+        // The latest method orders by descending order based off of the 'created_by' times, unless you pass in a column to order by. Will be ascending.
+        $jobs = OurJob::with('employer')->latest()->paginate(20);
         return view('jobs.index', ['jobs' => $jobs]);
     }
 
