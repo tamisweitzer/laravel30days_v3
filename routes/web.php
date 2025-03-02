@@ -39,6 +39,8 @@ Route::controller(OurJobController::class)->group(function () {
 });
 
 
+// This will register all typical routes associated with a controller. Be sure to following routing conventions so that this will work.
+// Route::resource('jobs', OurJobController::class);
 
 // Employers
 Route::get('/employers', [EmployerController::class, 'index']);
