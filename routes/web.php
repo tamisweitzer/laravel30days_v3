@@ -14,30 +14,29 @@ use App\Http\Controllers\EmployerController;
 Route::get('/', function () {
     return view('home');
 });
-
 Route::get('/about', function () {
     return view('about');
 });
-
 Route::get('/contact', function () {
     return view(view: 'contact');
 });
 
+// Jobs
 Route::get('/ourjobs', [OurJobController::class, 'index']);
 Route::get('/ourjobs/create', [OurJobController::class, 'create']);
-Route::post('/ourjobs/create', [OurJobController::class, 'store']);
 Route::get('/ourjobs/{id}', [OurJobController::class, 'show']);
+Route::post('/ourjobs/create', [OurJobController::class, 'store']);
 
+// Employers
 Route::get('/employers', [EmployerController::class, 'index']);
 Route::get('/employers/{id}', [EmployerController::class, 'show']);
 
 
 
+
 Route::get('/test1', [Test1Controller::class, 'show']);
 
-
 // Fox Valley Live test routes.
-
 Route::get('/bands', [BandController::class, 'index']);
 Route::get('/bands/create', [BandController::class, 'create']);
 Route::post('/bands/create', [BandController::class, 'store']);
