@@ -4,11 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\OurJob;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class OurJobController extends Controller {
     public function index() {
         // Eager load jobs with the associated employers.
-        $jobs = OurJob::with('employer')->paginate(20);
+        $jobs = OurJob::with('employer')->orderBy('id', 'desc')->paginate(20);
         return view('jobs.index', ['jobs' => $jobs]);
     }
 
@@ -22,7 +23,7 @@ class OurJobController extends Controller {
     }
 
     public function store() {
-        OurJob::create([
+        DB::table('our_jobs')->insertGetId([
             'title' => request("title"),
             'salary' => request("salary"),
             'employer_id' => 1,
