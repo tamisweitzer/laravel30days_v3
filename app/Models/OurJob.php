@@ -11,6 +11,9 @@ class OurJob extends Model {
   // protected $table = 'job_listings';
   protected $fillable = ['employer_id', 'title', 'salary'];
 
+  // Instead of fillable, use $guarded to allow fillable on ALL, except for the columns passed in as an arg.
+  // protected $guarded = [];
+
   public function employer() {
     return $this->belongsTo(Employer::class);
   }
