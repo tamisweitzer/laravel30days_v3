@@ -8,4 +8,6 @@
             </li>
         @endforeach
     </ul>
+
+    <x-button href="/" class="ml-0 mt-8">Back to Home</x-button>
 </x-layout>

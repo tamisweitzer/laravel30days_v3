@@ -11,5 +11,6 @@
             </div>
         @endforeach
     </div>
-    <x-go-back-link href="/employers"></x-go-back-link>
+
+    <x-button href="/employers" class="ml-0 mt-8">Back to Employers list</x-button>
 </x-layout>
