@@ -18,6 +18,9 @@
                                     class="block min-w-0 grow py-1.5 pr-3 pl-1 text-base text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm/6"
                                     placeholder="Programmer">
                             </div>
+                            @error('title')
+                                {{ $message }}
+                            @enderror
                         </div>
                     </div>
 
@@ -30,10 +33,13 @@
                                     class="block min-w-0 grow py-1.5 pr-3 pl-1 text-base text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm/6"
                                     placeholder="$80,000/year">
                             </div>
+                            @error('salary')
+                                {{ $message }}
+                            @enderror
                         </div>
                     </div>
                 </div>
-                <div class="mt-8 text-red-700">
+                {{-- <div class="mt-8 text-red-700">
                     @if ($errors->any())
                         <ul>
                             @foreach ($errors->all() as $error)
@@ -41,7 +47,7 @@
                             @endforeach
                         </ul>
                     @endif
-                </div>
+                </div> --}}
             </div>
 
         </div>
