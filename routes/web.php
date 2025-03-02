@@ -11,15 +11,16 @@ use App\Http\Controllers\VenueController;
 use App\Http\Controllers\OurJobController;
 use App\Http\Controllers\EmployerController;
 
-Route::get('/', function () {
-    return view(view: 'home');
-});
-Route::get('/about', function () {
-    return view(view: 'about');
-});
-Route::get('/contact', function () {
-    return view(view: 'contact');
-});
+// first way we did it.
+// Route::get('/', function () {
+//     return view(view: 'home');
+// });
+
+// When the route just needs to return a view, a faster syntax is to use the Route::view() method.
+Route::view('/', 'home');
+Route::view('/about', 'about');
+Route::view('/contact', 'contact');
+
 
 
 // Jobs
