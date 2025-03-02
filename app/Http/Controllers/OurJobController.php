@@ -14,34 +14,28 @@ class OurJobController extends Controller {
         return view('jobs.index', ['jobs' => $jobs]);
     }
 
-    public function show(OurJob $job) {
-        $jobs = OurJob::find($job);
-        return view('jobs.show', ['jobs' => $jobs]);
-    }
-
     public function create() {
         return view('jobs.create');
     }
 
-    public function edit($id) {
-        $job = OurJob::find($id);
+    public function show(OurJob $job) {
+        $job = OurJob::find($job)->first();
+        return view('jobs.show', ['job' => $job]);
+    }
+
+    public function edit(OurJob $job) {
+        $job = OurJob::find($job)->first();
         return view('jobs.edit', ['job' => $job]);
     }
 
 
-    public function update($id) {
+    public function update(OurJob $job) {
         request()->validate([
             'title' => ['required', 'min:3'],
             'salary' => ['required']
         ]);
 
-        $job = OurJob::findOrFail($id);
-        // One way to set values.
-        // $job->title = request('title');
-        // $job->salary = request('salary');
-        // $job->save();
-
-        // Another way to do it.
+        $job = OurJob::findOrFail($job->id);
         $job->update([
             'title' => request('title'),
             'salary' => request('salary')
@@ -50,8 +44,8 @@ class OurJobController extends Controller {
         return redirect('/ourjobs/' . $job->id);
     }
 
-    public function destroy($id) {
-        $job = OurJob::findOrFail($id)->delete();
+    public function destroy(OurJob $job) {
+        $job = OurJob::findOrFail($job->id)->delete();
         return redirect('/ourjobs');
     }
 

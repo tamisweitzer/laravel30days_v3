@@ -12,24 +12,25 @@ use App\Http\Controllers\OurJobController;
 use App\Http\Controllers\EmployerController;
 
 Route::get('/', function () {
-    return view('home');
+    return view(view: 'home');
 });
 Route::get('/about', function () {
-    return view('about');
+    return view(view: 'about');
 });
 Route::get('/contact', function () {
     return view(view: 'contact');
 });
 
+
 // Jobs
 Route::get('/ourjobs', [OurJobController::class, 'index']);
 Route::get('/ourjobs/create', [OurJobController::class, 'create']);
-Route::get('/ourjobs/{id}/edit', [OurJobController::class, 'edit']);
+Route::get('/ourjobs/{job}/edit', [OurJobController::class, 'edit']);
 Route::get('/ourjobs/{job}', [OurJobController::class, 'show']);
 
 Route::post('/ourjobs/create', [OurJobController::class, 'store']);
-Route::patch('/ourjobs/{id}', [OurJobController::class, 'update']);
-Route::delete('/ourjobs/{id}', [OurJobController::class, 'destroy']);
+Route::patch('/ourjobs/{job}', [OurJobController::class, 'update']);
+Route::delete('/ourjobs/{job}', [OurJobController::class, 'destroy']);
 
 
 // Employers
@@ -38,7 +39,7 @@ Route::get('/employers/{id}', [EmployerController::class, 'show']);
 
 
 
-
+// Test route.
 Route::get('/test1', [Test1Controller::class, 'show']);
 
 // Fox Valley Live test routes.
