@@ -8,7 +8,8 @@
                 </div>
 
                 <div>
-                    <span class="text-bold">{{ $job['title'] }}</span>: pays {{ $job['salary'] }} per year.
+                    <span class="text-bold">{{ $job['title'] }}</span>: pays ${{ $job['salary'] }} per
+                    year.
                 </div>
             </a>
         @endforeach
