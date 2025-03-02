@@ -32,7 +32,6 @@ Route::controller(OurJobController::class)->group(function () {
     Route::get('/ourjobs/create', 'create');
     Route::get('/ourjobs/{job}/edit', 'edit');
     Route::get('/ourjobs/{job}', 'show');
-
     Route::post('/ourjobs/create', 'store');
     Route::patch('/ourjobs/{job}', 'update');
     Route::delete('/ourjobs/{job}', 'destroy');
