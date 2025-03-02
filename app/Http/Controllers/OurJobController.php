@@ -14,9 +14,9 @@ class OurJobController extends Controller {
         return view('jobs.index', ['jobs' => $jobs]);
     }
 
-    public function show($id) {
-        $job = OurJob::find($id);
-        return view('jobs.show', ['job' => $job]);
+    public function show(OurJob $job) {
+        $jobs = OurJob::find($job);
+        return view('jobs.show', ['jobs' => $jobs]);
     }
 
     public function create() {

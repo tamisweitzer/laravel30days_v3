@@ -25,11 +25,12 @@ Route::get('/contact', function () {
 Route::get('/ourjobs', [OurJobController::class, 'index']);
 Route::get('/ourjobs/create', [OurJobController::class, 'create']);
 Route::get('/ourjobs/{id}/edit', [OurJobController::class, 'edit']);
-Route::get('/ourjobs/{id}', [OurJobController::class, 'show']);
+Route::get('/ourjobs/{job}', [OurJobController::class, 'show']);
 
 Route::post('/ourjobs/create', [OurJobController::class, 'store']);
 Route::patch('/ourjobs/{id}', [OurJobController::class, 'update']);
 Route::delete('/ourjobs/{id}', [OurJobController::class, 'destroy']);
+
 
 // Employers
 Route::get('/employers', [EmployerController::class, 'index']);
