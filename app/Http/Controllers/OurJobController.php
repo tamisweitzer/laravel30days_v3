@@ -24,6 +24,11 @@ class OurJobController extends Controller {
     }
 
     public function store() {
+        request()->validate([
+            'title' => ['required', 'min:3'],
+            'salary' => ['required']
+        ]);
+
         DB::table('our_jobs')->insertGetId([
             'title' => request("title"),
             'salary' => request("salary"),

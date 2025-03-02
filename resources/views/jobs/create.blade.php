@@ -32,10 +32,18 @@
                             </div>
                         </div>
                     </div>
-
-
+                </div>
+                <div class="mt-8 text-red-700">
+                    @if ($errors->any())
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    @endif
                 </div>
             </div>
+
         </div>
 
         <div class="mt-6 flex items-center justify-end gap-x-6">

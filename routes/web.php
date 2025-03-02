@@ -25,6 +25,7 @@ Route::get('/contact', function () {
 Route::get('/ourjobs', [OurJobController::class, 'index']);
 Route::get('/ourjobs/create', [OurJobController::class, 'create']);
 Route::get('/ourjobs/{id}', [OurJobController::class, 'show']);
+
 Route::post('/ourjobs/create', [OurJobController::class, 'store']);
 
 // Employers
