@@ -9,9 +9,20 @@ use App\Http\Controllers\EventController;
 use App\Http\Controllers\Test1Controller;
 use App\Http\Controllers\VenueController;
 use App\Http\Controllers\OurJobController;
+use App\Http\Controllers\SessionController;
 use App\Http\Controllers\EmployerController;
+use App\Http\Controllers\RegisteredUserController;
 
 // See all routes with php artisan route:list
+
+
+// Auth & login.
+Route::get('/register', [RegisteredUserController::class, 'create']);
+Route::post('/register', [RegisteredUserController::class, 'store']);
+
+Route::get('/login', [SessionController::class, 'create']);
+Route::post('/login', [SessionController::class, 'store']);
+
 
 
 // first way we did it.
@@ -25,7 +36,6 @@ Route::view('/about', 'about');
 Route::view('/contact', 'contact');
 
 
-
 // Jobs
 Route::controller(OurJobController::class)->group(function () {
     Route::get('/ourjobs', 'index');
@@ -36,6 +46,10 @@ Route::controller(OurJobController::class)->group(function () {
     Route::patch('/ourjobs/{job}', 'update');
     Route::delete('/ourjobs/{job}', 'destroy');
 });
+
+
+
+
 
 
 // This will register all typical routes associated with a controller. Be sure to following routing conventions so that this will work.
