@@ -11,6 +11,9 @@ use Laravel\Sanctum\HasApiTokens;
 class OurUser extends Authenticatable {
     use HasApiTokens, HasFactory, Notifiable;
 
+    // NOTE for later: Initially when I tried to register a new user I got this error about "Trait 'Laravel\Sanctum\HasApiTokens' not found".
+    // The fix was to install Sanctum `composer require laravel/sanctum`. Not sure why, but that works.
+
     /**
      * The attributes that are mass assignable.
      *
