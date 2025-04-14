@@ -11,5 +11,6 @@ class SessionController extends Controller {
 
     public function store() {
         // todo
+        // dd(request()->all());
     }
 }
