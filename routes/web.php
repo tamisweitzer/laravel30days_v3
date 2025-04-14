@@ -13,7 +13,7 @@ use App\Http\Controllers\SessionController;
 use App\Http\Controllers\EmployerController;
 use App\Http\Controllers\RegisteredUserController;
 
-// See all routes with php artisan route:list
+/* To see all registered routes, run `php artisan route:list` in a terminal. */
 
 
 // Auth & login.
@@ -24,13 +24,7 @@ Route::get('/login', [SessionController::class, 'create']);
 Route::post('/login', [SessionController::class, 'store']);
 
 
-
-// first way we did it.
-// Route::get('/', function () {
-//     return view(view: 'home');
-// });
-
-// When the route just needs to return a view, a faster syntax is to use the Route::view() method.
+// Default site pages.
 Route::view('/', 'home');
 Route::view('/about', 'about');
 Route::view('/contact', 'contact');
@@ -48,21 +42,17 @@ Route::controller(OurJobController::class)->group(function () {
 });
 
 
-
-
-
-
-// This will register all typical routes associated with a controller. Be sure to following routing conventions so that this will work.
-// Route::resource('jobs', OurJobController::class);
-
 // Employers
 Route::get('/employers', [EmployerController::class, 'index']);
 Route::get('/employers/{id}', [EmployerController::class, 'show']);
 
 
+// ******************************************* //
+
 
 // Test route.
 Route::get('/test1', [Test1Controller::class, 'show']);
+
 
 // Fox Valley Live test routes.
 Route::get('/bands', [BandController::class, 'index']);
