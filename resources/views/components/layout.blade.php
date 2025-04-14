@@ -69,7 +69,7 @@
 
             <!-- Mobile menu, show/hide based on menu state. -->
             <div class="hidden transition-all duration-5000 ease-in-out" id="mobile-menu">
-                <div class="space-y-1 px-2 pb-3 pt-2 sm:px-3">
+                <div class="space-y-1 px-2 py-4">
                     <x-nav-link-mobile href="/" :active="request()->is('/')">Home</x-nav-link-mobile>
                     <x-nav-link-mobile href="/about" :active="request()->is('about')">About</x-nav-link-mobile>
                     <x-nav-link-mobile href="/ourjobs" :active="request()->is('ourjobs')">Jobs</x-nav-link-mobile>
@@ -79,32 +79,12 @@
                     <x-nav-link-mobile href="/events" :active="request()->is('events')">Events</x-nav-link-mobile>
                     <x-nav-link-mobile href="/venues" :active="request()->is('venues')">Venues</x-nav-link-mobile>
                 </div>
-                <div class="border-t border-gray-700 pb-3 pt-4">
-                    <x-nav-link-mobile href="/login" :active="request()->is('login')">Login</x-nav-link-mobile>
-                    <x-nav-link-mobile href="/register" :active="request()->is('register')">Register</x-nav-link-mobile>
-                </div>
-                <div class="border-t border-gray-700 pb-3 pt-4">
-                    <div class="flex items-center px-5">
-                        <div class="flex-shrink-0">
-                            <img class="h-10 w-10 rounded-full" src="https://laracasts.com/images/lary-ai-face.svg"
-                                alt="">
-                        </div>
-                        <div class="ml-3">
-                            <div class="text-base font-medium leading-none text-white">Lary Robot</div>
-                            <div class="text-sm font-medium leading-none text-gray-400">lary.robot@example.com</div>
-                        </div>
-                        <button type="button"
-                            class="relative ml-auto flex-shrink-0 rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
-                            <span class="absolute -inset-1.5"></span>
-                            <span class="sr-only">View notifications</span>
-                            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                                stroke="currentColor" aria-hidden="true">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" />
-                            </svg>
-                        </button>
+                @auth
+                    <div class="border-t border-gray-700 px-2 pb-3 pt-4">
+                        <x-nav-link-mobile href="/login" :active="request()->is('login')">Login</x-nav-link-mobile>
+                        <x-nav-link-mobile href="/register" :active="request()->is('register')">Register</x-nav-link-mobile>
                     </div>
-                </div>
+                @endauth
             </div>
         </nav>
 
