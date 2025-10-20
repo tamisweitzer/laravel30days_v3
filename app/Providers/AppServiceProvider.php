@@ -19,7 +19,7 @@ class AppServiceProvider extends ServiceProvider {
      */
     public function boot(): void {
         // Disable lazy loading.
-        // Model::preventLazyLoading();
+        Model::preventLazyLoading();
 
         // Configure paginator; Change the styling to Bootstrap, if desired.
         // Paginator::useBootstrapFive();
