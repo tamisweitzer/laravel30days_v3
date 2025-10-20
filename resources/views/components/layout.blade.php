@@ -38,9 +38,16 @@
                     </div>
                     <div class="hidden md:block">
                         <div class="ml-10 flex items-baseline space-x-4">
-                            @auth
-                                <x-nav-link href="/login" :active="request()->is('login')">Login</x-nav-link>
+                            @guest
+                                <x-nav-link href="/login" :active="request()->is('login')">Log in</x-nav-link>
                                 <x-nav-link href="/register" :active="request()->is('register')">Register</x-nav-link>
+                            @endguest
+                            @auth
+                                <form action="/logout" method="POST">
+                                    @csrf
+                                    <input type="submit" value="Logout"
+                                        class="bg-gray-900 rounded-md px-3 py-2 text-sm font-medium text-white">
+                                </form>
                             @endauth
                         </div>
                     </div>
@@ -68,7 +75,7 @@
             </div>
 
             <!-- Mobile menu, show/hide based on menu state. -->
-            <div class="hidden transition-all duration-5000 ease-in-out" id="mobile-menu">
+            <div class="hidden transition-all duration-5000 ease-in-out pb-12" id="mobile-menu">
                 <div class="space-y-1 px-2 py-4">
                     <x-nav-link-mobile href="/" :active="request()->is('/')">Home</x-nav-link-mobile>
                     <x-nav-link-mobile href="/about" :active="request()->is('about')">About</x-nav-link-mobile>
@@ -79,11 +86,18 @@
                     <x-nav-link-mobile href="/events" :active="request()->is('events')">Events</x-nav-link-mobile>
                     <x-nav-link-mobile href="/venues" :active="request()->is('venues')">Venues</x-nav-link-mobile>
                 </div>
-                @auth
+                @guest
                     <div class="border-t border-gray-700 px-2 pb-3 pt-4">
                         <x-nav-link-mobile href="/login" :active="request()->is('login')">Login</x-nav-link-mobile>
                         <x-nav-link-mobile href="/register" :active="request()->is('register')">Register</x-nav-link-mobile>
                     </div>
+                @endguest
+                @auth
+                    <form action="/logout" method="POST" class="mx-4">
+                        @csrf
+                        <button type="submit" value="Logout"
+                            class="bg-gray-900 rounded-md px-3 py-2 text-sm font-medium text-white">Log out </button>
+                    </form>
                 @endauth
             </div>
         </nav>

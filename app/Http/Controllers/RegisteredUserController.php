@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\OurUser;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
@@ -15,13 +16,12 @@ class RegisteredUserController extends Controller {
 
     public function store() {
         $attributes = request()->validate([
-            'first_name' => ['required'],
-            'last_name' => ['required'],
+            'name' => ['required'],
             'email' => ['required', 'email'],
             'password' => ['required', Password::min(2), 'confirmed'],
         ]);
 
-        $user = OurUser::create($attributes);
+        $user = User::create($attributes);
 
         Auth::login($user);
 

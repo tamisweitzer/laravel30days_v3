@@ -16,12 +16,16 @@ use App\Http\Controllers\RegisteredUserController;
 /* To see all registered routes, run `php artisan route:list` in a terminal. */
 
 
-// Auth & login.
+// Register a user.
 Route::get('/register', [RegisteredUserController::class, 'create']);
 Route::post('/register', [RegisteredUserController::class, 'store']);
 
+// Login user.
 Route::get('/login', [SessionController::class, 'create']);
 Route::post('/login', [SessionController::class, 'store']);
+
+// Logout user.
+Route::post('/logout', [SessionController::class, 'destroy']);
 
 
 // Default site pages.
