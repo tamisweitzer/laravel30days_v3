@@ -19,10 +19,8 @@ use App\Http\Controllers\RegisteredUserController;
 // Register a user.
 /* HIDE REGISTER ROUTE BECAUSE APP IS NOT OPEN TO PUBLIC.  */
 
-Route::get('/register', [RegisteredUserController::class, 'create'])
-    ->middleware('auth');
-Route::post('/register', [RegisteredUserController::class, 'store'])
-    ->middleware('auth');
+Route::get('/register', [RegisteredUserController::class, 'create']);
+Route::post('/register', [RegisteredUserController::class, 'store']);
 
 // Login user.
 Route::get('/login', [SessionController::class, 'create'])
