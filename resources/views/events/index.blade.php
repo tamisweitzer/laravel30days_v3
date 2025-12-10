@@ -23,8 +23,8 @@
                     <x-link-inline href="venues/{{ $event->venue->id }}"
                         class="text-lg">{{ $event->venue->name }}</x-link-inline>
                     <span> in </span>
-                    {{-- <x-link-inline href="cities/{{ $event->band->city->id }}"
-                        class="text-lg">{{ $event->band->city->name }}</x-link-inline> --}}
+                    <x-link-inline href="cities/{{ $event->band->city->id }}"
+                        class="text-lg">{{ $event->band->city->name }}</x-link-inline>
                 </div>
 
                 <div class="text-xs">
