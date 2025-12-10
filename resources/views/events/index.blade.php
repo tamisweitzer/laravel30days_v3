@@ -1,6 +1,14 @@
 <x-layout class="">
     <x-slot:heading>Events</x-slot:heading>
     <ul class="text-slate-500">
+
+        @if (!$events)
+            {
+            <div>No events found. </div>
+            die();
+            }
+        @endif
+
         @foreach ($events as $event)
             {{-- {{ dd($event) }} --}}
             <li class="p-4 mb-2 bg-slate-50 shadow-inner border ">
