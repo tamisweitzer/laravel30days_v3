@@ -17,12 +17,18 @@ use App\Http\Controllers\RegisteredUserController;
 
 
 // Register a user.
-Route::get('/register', [RegisteredUserController::class, 'create']);
-Route::post('/register', [RegisteredUserController::class, 'store']);
+/* HIDE REGISTER ROUTE BECAUSE APP IS NOT OPEN TO PUBLIC.  */
+
+Route::get('/register', [RegisteredUserController::class, 'create'])
+    ->middleware('auth');
+Route::post('/register', [RegisteredUserController::class, 'store'])
+    ->middleware('auth');
 
 // Login user.
-Route::get('/login', [SessionController::class, 'create']);
-Route::post('/login', [SessionController::class, 'store']);
+Route::get('/login', [SessionController::class, 'create'])
+    ->name('login');
+Route::post('/login', [SessionController::class, 'store'])
+    ->name('login-store');
 
 // Logout user.
 Route::post('/logout', [SessionController::class, 'destroy']);
@@ -37,12 +43,17 @@ Route::view('/contact', 'contact');
 // Jobs
 Route::controller(OurJobController::class)->group(function () {
     Route::get('/ourjobs', 'index');
-    Route::get('/ourjobs/create', 'create');
-    Route::get('/ourjobs/{job}/edit', 'edit');
+    Route::get('/ourjobs/create', 'create')
+        ->middleware('auth');
+    Route::get('/ourjobs/{job}/edit', 'edit')
+        ->middleware('auth');;
     Route::get('/ourjobs/{job}', 'show');
-    Route::post('/ourjobs/create', 'store');
-    Route::patch('/ourjobs/{job}', 'update');
-    Route::delete('/ourjobs/{job}', 'destroy');
+    Route::post('/ourjobs/create', 'store')
+        ->middleware('auth');;
+    Route::patch('/ourjobs/{job}', 'update')
+        ->middleware('auth');;
+    Route::delete('/ourjobs/{job}', 'destroy')
+        ->middleware('auth');;
 });
 
 
@@ -60,8 +71,10 @@ Route::get('/test1', [Test1Controller::class, 'show']);
 
 // Fox Valley Live test routes.
 Route::get('/bands', [BandController::class, 'index']);
-Route::get('/bands/create', [BandController::class, 'create']);
-Route::post('/bands/create', [BandController::class, 'store']);
+Route::get('/bands/create', [BandController::class, 'create'])
+    ->middleware('auth');;
+Route::post('/bands/create', [BandController::class, 'store'])
+    ->middleware('auth');;
 Route::get('/bands/{id}', [BandController::class, 'show']);
 
 Route::get('/cities', [CityController::class, 'index']);
@@ -71,7 +84,9 @@ Route::get('/venues', [VenueController::class, 'index']);
 Route::get('/venues/{id}', [VenueController::class, 'show']);
 
 Route::get('/events', [EventController::class, 'index']);
-Route::get('/events/create', [EventController::class, 'create']);
-Route::post('events/create', [EventController::class, 'store']);
+Route::get('/events/create', [EventController::class, 'create'])
+    ->middleware('auth');;
+Route::post('events/create', [EventController::class, 'store'])
+    ->middleware('auth');;
 Route::get('/events/{id}', [EventController::class, 'show']);
 Route::get('/events/{year}/{mon}', [EventController::class, 'archivemonth']);
