@@ -4,8 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\Band;
 use App\Models\City;
+use App\Models\Event;
+use App\Models\Venue;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
 
 class CityController extends Controller {
     public function index(): View {
@@ -14,8 +18,29 @@ class CityController extends Controller {
 
     public function show($id): View {
         $city = City::find($id);
-        $bands = Band::all()->where('city_id', $city->id);
-        // TODO when venues are set up. $venues = Venue::all()->where('city_id', $city->id);
-        return view('cities.show', ['city' => $city, 'bands' => $bands]);
+
+        $events = DB::table('events')
+            ->join('bands', 'events.band_id', '=', 'bands.id')
+            ->join('venues', 'events.venue_id', '=', 'venues.id')
+            ->join('cities', 'venues.city_id', '=', 'cities.id')
+            ->select('events.event_date', 'events.event_time', 'bands.name as band_name', 'venues.name as venue_name')
+            // ->select('*')
+
+            ->where('venues.city_id', '=', $id)
+            ->get();
+
+
+        $venues = DB::table('venues')
+            ->join('cities', 'venues.city_id', '=', 'cities.id')
+            ->select('venues.id as venue_id', 'venues.name as venue_name', 'venues.website_url as venue_website_url')
+            ->where('venues.city_id', '=', $id)
+            ->get();
+
+
+        return view('cities.show', [
+            'city' => $city,
+            'events' => $events,
+            'venues' => $venues
+        ]);
     }
 }
