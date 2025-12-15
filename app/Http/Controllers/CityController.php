@@ -23,9 +23,7 @@ class CityController extends Controller {
             ->join('bands', 'events.band_id', '=', 'bands.id')
             ->join('venues', 'events.venue_id', '=', 'venues.id')
             ->join('cities', 'venues.city_id', '=', 'cities.id')
-            ->select('events.event_date', 'events.event_time', 'bands.name as band_name', 'venues.name as venue_name')
-            // ->select('*')
-
+            ->select('events.id as event_id', 'events.event_date', 'events.event_time', 'bands.name as band_name', 'venues.name as venue_name')
             ->where('venues.city_id', '=', $id)
             ->orderBy('events.event_date', 'DESC')
             ->get();
@@ -33,7 +31,7 @@ class CityController extends Controller {
 
         $venues = DB::table('venues')
             ->join('cities', 'venues.city_id', '=', 'cities.id')
-            ->select('venues.id as venue_id', 'venues.name as venue_name', 'venues.website_url as venue_website_url')
+            ->select('venues.id as venue_id', 'venues.name as venue_name', 'venues.address1 as venue_address1')
             ->where('venues.city_id', '=', $id)
             ->get();
 
