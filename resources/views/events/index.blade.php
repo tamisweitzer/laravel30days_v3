@@ -8,7 +8,7 @@
                 <a class="p-4 mb-2 bg-slate-50 border b-slate-100 hover:shadow-inner hover:border-slate-300 hover:bg-white"
                     href="events/{{ $event->id }}">
                     <li>
-                        <h2 class="mb-2 text-slate-900 font-bold tracking-widest">
+                        <h2 class="mb-2 text-slate-900 font-bold tracking-wide">
                             {{ $event->band->name }}
                         </h2>
 

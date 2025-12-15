@@ -7,7 +7,7 @@
                 <a class="p-4 mb-2 bg-slate-50 border b-slate-100 hover:shadow-inner hover:border-slate-300 hover:bg-white"
                     href="/venues/{{ $venue->id }}">
                     <li>
-                        <h2 class="mb-2 text-slate-900 font-bold tracking-widest"> {{ $venue->name }}</h2>
+                        <h2 class="mb-2 text-slate-900 font-bold tracking-wide"> {{ $venue->name }}</h2>
 
                         <div class="text-xs mb-1">
                             Lorem ipsum sit dolor
