@@ -5,32 +5,30 @@
         <ul class="text-slate-500 grid sm:grid-cols-2 md:grid-cols-3 gap-2">
             @foreach ($events as $event)
                 {{-- {{ dd($event) }} --}}
-                <li class="p-4 mb-2 bg-slate-50 shadow-inner border ">
+                <a class="p-4 mb-2 bg-slate-50 border b-slate-100 hover:shadow-inner hover:border-slate-300 hover:bg-white"
+                    href="">
+                    <li>
+                        <h2 class="mb-2 text-slate-900 font-bold tracking-widest">
+                            {{ $event->band->name }}
+                        </h2>
 
-                    <h2 class="mb-2 text-slate-900 font-bold tracking-widest">
-                        <x-link-inline href="/bands/{{ $event->band->id }}"
-                            class="text-2xl">{{ $event->band->name }}</x-link-inline>
-                    </h2>
+                        <div class="text-base mb-1">
+                            {{ $event->venue->name }}
+                            <span> in </span>
+                            {{ $event->venue->city->name }}
+                        </div>
 
-                    <div class="text-base mb-1">
-                        <x-link-inline href="venues/{{ $event->venue->id }}"
-                            class="text-lg">{{ $event->venue->name }}</x-link-inline>
-                        <span> in </span>
-                        <x-link-inline href="cities/{{ $event->venue->city->id }}"
-                            class="text-lg">{{ $event->venue->city->name }}</x-link-inline>
-                    </div>
+                        <div class="text-xs">
+                            {{ date('M d, Y', strtotime($event->event_date)) }}
+                            at
+                            {{ date('h:i A', strtotime($event->event_time)) }}
+                        </div>
 
-                    <div class="text-xs">
-                        {{ date('M d, Y', strtotime($event->event_date)) }}
-                        at
-                        {{ date('h:i A', strtotime($event->event_time)) }}
-                    </div>
-
-                    <div class="text-sm">
-                        {{ $event->details }}
-                    </div>
-
-                </li>
+                        <div class="text-sm">
+                            {{ $event->details }}
+                        </div>
+                    </li>
+                </a>
             @endforeach
         </ul>
     @else
