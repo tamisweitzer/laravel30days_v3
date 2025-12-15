@@ -27,6 +27,7 @@ class CityController extends Controller {
             // ->select('*')
 
             ->where('venues.city_id', '=', $id)
+            ->orderBy('events.event_date', 'DESC')
             ->get();
 
 
