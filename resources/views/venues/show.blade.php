@@ -1,6 +1,12 @@
 <x-layout>
     <x-slot:heading>{{ $venue->name }}</x-slot:heading>
 
+    <h2 class="text-2xl mb-4">About</h2>
+
+    <div class="mb-4">{{ $venue->excerpt }}</div>
+
+    <div class="mb-4">{{ $venue->bio }}</div>
+
     <h2 class="text-2xl mt-8 mb-4">Upcoming Shows</h2>
 
     {{-- @dd($events) --}}
