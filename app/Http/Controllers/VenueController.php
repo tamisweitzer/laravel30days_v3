@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\DB;
 
 class VenueController extends Controller {
     public function index() {
-        return view('venues.index', ['venues' => Venue::all()]);
+        return view('venues.index', ['venues' => Venue::with('city')->get()]);
     }
 
     public function show($id) {

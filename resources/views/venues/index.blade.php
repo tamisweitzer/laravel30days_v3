@@ -10,7 +10,7 @@
                         <h2 class="mb-2 text-slate-900 font-bold tracking-wide"> {{ $venue->name }}</h2>
 
                         <div class="text-xs mb-1">
-                            Lorem ipsum sit dolor
+                            {{ $venue->address1 }}, {{ $venue->city->name }}
                         </div>
                     </li>
                 </a>
