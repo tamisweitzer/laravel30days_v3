@@ -19,7 +19,9 @@
                 <div class="flex h-16 items-center justify-between">
                     <div class="flex items-center">
                         <div class="flex-shrink-0">
-                            <img class="h-8 w-8" src="{{ asset('favicon.ico') }}" alt="Your Company">
+                            <a href="/">
+                                <img class="h-8 w-8" src="{{ asset('favicon.ico') }}" alt="Your Company">
+                            </a>
                         </div>
                         <div class="hidden md:block">
                             <div class="ml-10 flex items-baseline space-x-4">
