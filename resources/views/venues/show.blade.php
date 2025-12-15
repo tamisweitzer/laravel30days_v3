@@ -14,13 +14,16 @@
     @if (!$events->isEmpty())
         <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-2">
             @foreach ($events as $event)
-                <a href="/events/{{ $event->id }}">
-                    <div class="p-4 bg-slate-50 border b-slate-100">
-                        <div class="text-xl">{{ $event->band_name }}</div>
-                        <div class="text-sm text-gray-600">
-                            {{ $event->event_date }} -
-                            {{ $event->event_time }}
-                        </div>
+                <a class="p-4 mb-2 bg-slate-50 border b-slate-100 hover:shadow-inner hover:border-slate-300 hover:bg-white"
+                    href="/events/{{ $event->id }}">
+                    <h2 class="mb-2 text-slate-900 font-bold tracking-wide">
+                        {{ $event->band_name }}
+                    </h2>
+
+                    <div class="text-xs">
+                        {{ date('M d, Y', strtotime($event->event_date)) }}
+                        at
+                        {{ date('h:i A', strtotime($event->event_time)) }}
                     </div>
                 </a>
             @endforeach
