@@ -37,7 +37,10 @@ class EventController extends Controller {
         return redirect('/events');
     }
     public function show($id) {
-        $event = Event::find($id);
+        $event = Event::with(['band', 'venue'])->find($id);
+
+
+
         return view('events.show', ['event' => $event]);
     }
 
