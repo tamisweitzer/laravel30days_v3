@@ -28,8 +28,9 @@
                 </div>
 
                 <div class="text-xs">
-                    {{ date('M d, Y', strtotime($event->event_time)) }}
-                    at 8:00 pm
+                    {{ date('M d, Y', strtotime($event->event_date)) }}
+                    at
+                    {{ date('h:i A', strtotime($event->event_time)) }}
                 </div>
 
                 <div class="text-sm">

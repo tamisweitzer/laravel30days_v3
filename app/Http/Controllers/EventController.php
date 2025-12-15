@@ -11,7 +11,7 @@ use Illuminate\Http\Request;
 
 class EventController extends Controller {
     public function index() {
-        $events = Event::with(['band', 'venue', 'venue.city'])->orderBy('event_date', 'DESC')->get();
+        $events = Event::with(['band', 'venue', 'venue.city'])->orderBy('event_date', 'ASC')->get();
 
         return view('events.index', ['events' => $events]);
     }
