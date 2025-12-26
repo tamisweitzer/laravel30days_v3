@@ -11,6 +11,7 @@ use App\Http\Controllers\VenueController;
 use App\Http\Controllers\OurJobController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\EmployerController;
+use App\Http\Controllers\ImageController;
 use App\Http\Controllers\RegisteredUserController;
 
 /* To see all registered routes, run `php artisan route:list` in a terminal. */
@@ -88,3 +89,7 @@ Route::post('events/create', [EventController::class, 'store'])
     ->middleware('auth');;
 Route::get('/events/{id}', [EventController::class, 'show']);
 Route::get('/events/{year}/{mon}', [EventController::class, 'archivemonth']);
+
+// Image handling.
+Route::get('/images/create', [ImageController::class, 'create'])->name('images.create');
+Route::post('/images', [ImageController::class, 'store'])->name('images.store');
