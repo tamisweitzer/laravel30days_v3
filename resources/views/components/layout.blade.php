@@ -41,7 +41,7 @@
                         <div class="ml-10 flex items-baseline space-x-4">
                             @guest
                                 <x-nav-link href="/login" :active="request()->is('login')">Log in</x-nav-link>
-                                <x-nav-link href="/register" :active="request()->is('register')">Register</x-nav-link>
+                                {{-- <x-nav-link href="/register" :active="request()->is('register')">Register</x-nav-link> --}}
                             @endguest
                             @auth
                                 <form action="/logout" method="POST">
@@ -90,7 +90,7 @@
                 @guest
                     <div class="border-t border-gray-700 px-2 pb-3 pt-4">
                         <x-nav-link-mobile href="/login" :active="request()->is('login')">Login</x-nav-link-mobile>
-                        <x-nav-link-mobile href="/register" :active="request()->is('register')">Register</x-nav-link-mobile>
+                        {{-- <x-nav-link-mobile href="/register" :active="request()->is('register')">Register</x-nav-link-mobile> --}}
                     </div>
                 @endguest
                 @auth
