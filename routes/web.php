@@ -92,4 +92,4 @@ Route::get('/events/{year}/{mon}', [EventController::class, 'archivemonth']);
 
 // Image handling.
 Route::get('/images/create', [ImageController::class, 'create'])->name('images.create');
-Route::post('/images', [ImageController::class, 'store'])->name('images.store');
+Route::post('/images/create', [ImageController::class, 'store'])->name('images.store');
