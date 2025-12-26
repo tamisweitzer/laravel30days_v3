@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Media;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -29,7 +30,14 @@ class ImageController extends Controller {
         foreach ($request->file('images') as $imageFile) {
 
             $filename = $this->makeUniqueFilename($imageFile);
-            $imageFile->storeAs($folder, $filename);
+            $path = $imageFile->storeAs($folder, $filename);
+
+            Media::create([
+                'file_name' => $imageFile->getClientOriginalName(),
+                'mime_type' => $imageFile->getClientMimeType(),
+                'file_size' => $imageFile->getSize(),
+                'path' => $path
+            ]);
         }
     }
 }
