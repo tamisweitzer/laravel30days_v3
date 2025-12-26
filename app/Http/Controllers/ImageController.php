@@ -18,6 +18,11 @@ class ImageController extends Controller {
             . "." . $info['extension'];
         return $slugged;
     }
+
+    public function index() {
+        $images = Media::all();
+        return view('images.index', compact('images'));
+    }
     public function create() {
         return view('images.create');
     }
@@ -39,5 +44,7 @@ class ImageController extends Controller {
                 'path' => $path
             ]);
         }
+
+        return to_route('image.index');
     }
 }
