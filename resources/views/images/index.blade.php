@@ -5,7 +5,7 @@
         <x-anchor href="{{ route('images.create') }}">Upload an Image</x-anchor>
     </div>
 
-    <div class="grid grid-cols-2 gap-2">
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-2">
         @foreach ($images as $image)
             <div class="">
                 <img src="{{ asset('storage/' . $image->path . ' ') }}" alt="{{ $image->file_name }}" class="w-full" />
