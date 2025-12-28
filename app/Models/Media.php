@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Storage;
 class Media extends Model {
     protected $fillable = [
         'file_name',
+        'image_name',
         'mime_type',
         'file_size',
         'path'
