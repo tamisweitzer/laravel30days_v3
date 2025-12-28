@@ -1,9 +1,11 @@
 <x-layout>
     <x-slot:heading>Images</x-slot:heading>
 
-    <div class="my-4">
-        <x-anchor href="{{ route('images.create') }}">Upload an Image</x-anchor>
-    </div>
+    @auth
+        <div class="my-4">
+            <x-anchor href="{{ route('images.create') }}">Upload an Image</x-anchor>
+        </div>
+    @endauth
 
     @if (count($images) > 0)
         <div class="grid  grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
