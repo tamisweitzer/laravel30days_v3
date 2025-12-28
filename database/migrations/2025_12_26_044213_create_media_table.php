@@ -12,7 +12,6 @@ return new class extends Migration {
         Schema::create('media', function (Blueprint $table) {
             $table->id();
             $table->string('file_name');
-            $table->string('image_name');
             $table->string('mime_type');
             $table->string('file_size');
             $table->string('path');
