@@ -94,6 +94,8 @@ Route::get('/events/{year}/{mon}', [EventController::class, 'archivemonth']);
 Route::get('/images', [ImageController::class, 'index'])
     ->name('images.index');
 Route::get('/images/create', [ImageController::class, 'create'])
+    ->middleware('auth')
     ->name('images.create');
 Route::post('/images/create', [ImageController::class, 'store'])
+    ->middleware('auth')
     ->name('images.store');
