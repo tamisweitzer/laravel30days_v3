@@ -9,7 +9,7 @@
         @foreach ($images as $image)
             <div class="">
                 <img src="{{ asset('storage/' . $image->path . ' ') }}" alt="{{ $image->file_name }}" class="w-full" />
-                <p>{{ $image->file_name }}</p>
+                <p>{{ $image->id }} {{ $image->file_name }}</p>
             </div>
         @endforeach
     </div>

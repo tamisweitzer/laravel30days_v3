@@ -34,6 +34,7 @@
                                 <x-nav-link href="/cities" :active="request()->is('cities')">Cities</x-nav-link>
                                 <x-nav-link href="/events" :active="request()->is('events')">Events</x-nav-link>
                                 <x-nav-link href="/venues" :active="request()->is('venues')">Venues</x-nav-link>
+                                <x-nav-link href="/images" :active="request()->is('images')">Images</x-nav-link>
                             </div>
                         </div>
                     </div>
@@ -86,6 +87,7 @@
                     <x-nav-link-mobile href="/cities" :active="request()->is('cities')">Cities</x-nav-link-mobile>
                     <x-nav-link-mobile href="/events" :active="request()->is('events')">Events</x-nav-link-mobile>
                     <x-nav-link-mobile href="/venues" :active="request()->is('venues')">Venues</x-nav-link-mobile>
+                    <x-nav-link-mobile href="/images" :active="request()->is('images')">Images</x-nav-link-mobile>
                 </div>
                 @guest
                     <div class="border-t border-gray-700 px-2 pb-3 pt-4">

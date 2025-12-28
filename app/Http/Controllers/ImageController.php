@@ -45,6 +45,6 @@ class ImageController extends Controller {
             ]);
         }
 
-        return to_route('image.index');
+        return to_route('images.index');
     }
 }
