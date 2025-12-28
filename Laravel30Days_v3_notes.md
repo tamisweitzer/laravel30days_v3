@@ -36,3 +36,7 @@ Register all typical routes associated with a controller.
 ```php
 Route::resource('jobs', OurJobController::class);
 ```
+
+# Hostinger
+
+To manage migrations, et al, at Hostinger, first SSH into the account, then `cd` to the appropriate directory and run your artisan commands.
