@@ -19,8 +19,9 @@
                 <div class="flex h-16 items-center justify-between">
                     <div class="flex items-center">
                         <div class="flex-shrink-0">
-                            <a href="/">
-                                <img class="h-8 w-8" src="{{ asset('favicon.ico') }}" alt="Your Company">
+                            <a href="/" class="text-white">
+                                {{-- <img class="h-8 w-8" src="{{ asset('favicon.ico') }}" alt="Your Company"> --}}
+                                Laravel30Days
                             </a>
                         </div>
                         <div class="hidden md:block">
@@ -123,6 +124,12 @@
                 {{ $slot }}
             </div>
         </main>
+
+        <footer class="bg-gray-800 py-12">
+            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-gray-500 text-xs">
+                <a href="https://laracasts.com/series/30-days-to-learn-laravel-11">30 Days to Learn Laravel</a>
+            </div>
+        </footer>
     </div>
 
 </body>
