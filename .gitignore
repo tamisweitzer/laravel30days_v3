@@ -5,6 +5,7 @@
 /public/storage
 /storage/*.key
 /storage/pail
+/tests
 /vendor
 .env
 .env.backup
@@ -24,7 +25,5 @@ yarn-error.log
 
 .DS_store
 notes_*
-/tests
 .env.*
-
 laravel_30days_icon.*
