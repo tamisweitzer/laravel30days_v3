@@ -12,7 +12,7 @@
             {{-- @dd($images) --}}
             @foreach ($images as $image)
                 {{-- @dd($image) --}}
-                <div class="border border-gray-200">
+                <div class="border border-gray-200 shadow-lg">
                     <a href="{{ asset('storage/' . $image->path . ' ') }}">
                         <img src="{{ asset('storage/' . $image->path . ' ') }}" alt="{{ $image->file_name }}"
                             class="w-full" />
